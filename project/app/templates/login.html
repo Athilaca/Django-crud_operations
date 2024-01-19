@@ -1,0 +1,103 @@
+{%extends 'base.html'%}
+{% block title %}login{% endblock title %}
+
+{% block body %}
+<div class="container"> 
+ 
+   <div class="card m-5 p-3">
+    
+     
+
+<!-- Section: Design Block -->
+<section class=" text-center text-lg-start">
+  <style>
+    .rounded-t-5 {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .rounded-tr-lg-0 {
+        border-top-right-radius: 0;
+      }
+
+      .rounded-bl-lg-5 {
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+  </style>
+  {% comment %} <div class="card mb-3"> {% endcomment %}
+    <div class="row g-0 d-flex align-items-center">
+      <div class="col-lg-3 d-none d-lg-flex">
+        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5">
+          
+          {% for x in messages %}
+          <div class="alert alert-{{x.tags}} alert-dismissible fade show"role="alert">
+            {{x}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close">
+          </div>
+          {% endfor %}
+
+
+          <form method="POST" action=""> 
+            {% csrf_token %}
+            <!-- Email input -->
+            {% comment %} <p class="text-danger"> {% endcomment %}
+            {% comment %} {% for x in messages  %}
+              {{x}}
+            {% endfor %}
+            </p> {% endcomment %}
+
+            {% comment %} <div class=" text-center"> {% endcomment %}
+              <h2 class="fw-bold mb-3">Log in</h2>
+
+            <div class="form-outline mb-4 ">
+              <input type="text" id="form2Example1" name="username" class="form-control" Required/>
+              <label class="form-label" for="form2Example1">username</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example2" name="password" class="form-control" Required/>
+              <label class="form-label"  for="form2Example2">Password</label>
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                  <label class="form-check-label" for="form2Example31"> Remember me </label>
+                </div>
+              </div>
+
+             
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <button type="reset" class="btn btn-secondary btn-block mb-4">Clear</button>
+
+            <div>
+              <p class="text-center text-muted mt-5 mb-0">Not a user? <a href={% url 'perform_signup'%}
+                class="fw-bold text-body"><u>Signup here</u></a></p>
+
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+</div>
+{% endblock body %}
+<!-- Section: Design Block -->
